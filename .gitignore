@@ -16,3 +16,4 @@ modules.xml
 runConfigurations.xml
 gradle.xml
 profiles_settings.xml
+.idea
