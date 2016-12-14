@@ -18,8 +18,11 @@ public abstract class BaseCommAdapter<T> extends BaseAdapter {
 
     private List<T> mList;
 
-    public BaseCommAdapter(List<T> mList) {
+    private Context mContext;
+
+    public BaseCommAdapter(List<T> mList,Context mContext) {
         this.mList = mList;
+        this.mContext=mContext;
     }
 
     @Override
@@ -39,8 +42,8 @@ public abstract class BaseCommAdapter<T> extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        ViewHolder holder=ViewHolder.newsInstance(convertView,parent.getContext(),getLayoutId());
-        setUI(holder,position,parent.getContext());
+        ViewHolder holder=ViewHolder.newsInstance(convertView,mContext,getLayoutId());
+        setUI(holder,position,mContext);
         return holder.getmConvertView();
     }
 

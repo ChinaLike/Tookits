@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         mList.add("文莱");
         mList.add("菲律宾");
 //        mAdapter = new TagBaseAdapter(this,mList);
-        layout.setAdapter(new BaseCommAdapter<String>(mList) {
+        layout.setAdapter(new BaseCommAdapter<String>(mList,this) {
             @Override
             protected void setUI(ViewHolder holder, int position, Context context) {
                 Button mButton=holder.getItemView(R.id.tag_btn);
