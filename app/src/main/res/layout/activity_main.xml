@@ -4,10 +4,20 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.like.MainActivity">
+    android:background="#F0F0F0"
+    android:padding="10dp"
+    tools:context="com.like.activity.MainActivity">
 
-    <com.like.utils.layout.TagCloudLayout
-        android:id="@+id/tag"
+    <Button
+        android:id="@+id/btn1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:text="自定义控件" />
+
+    <Button
+        android:id="@+id/btn2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="工具类" />
+
 </RelativeLayout>
