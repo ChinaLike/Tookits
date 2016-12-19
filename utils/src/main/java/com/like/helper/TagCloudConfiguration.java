@@ -1,4 +1,4 @@
-package com.like.utils.helper;
+package com.like.helper;
 
 import android.content.Context;
 import android.content.res.TypedArray;

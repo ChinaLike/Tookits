@@ -1,4 +1,4 @@
-package com.like.utils.common;
+package com.like.common;
 
 import android.content.Context;
 import android.util.SparseArray;

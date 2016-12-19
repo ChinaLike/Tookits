@@ -1,4 +1,4 @@
-package com.like.utils.layout;
+package com.like.layout;
 
 import android.content.Context;
 import android.database.DataSetObserver;
@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
-import com.like.utils.helper.TagCloudConfiguration;
+import com.like.helper.TagCloudConfiguration;
 
 /**
  * 标签云控件
