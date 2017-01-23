@@ -2,21 +2,34 @@ package com.like.activity;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.Button;
+import android.widget.FrameLayout;
 
 import com.like.R;
+import com.like.adapter.SlideAdapter;
+import com.like.bean.SlideBean;
+import com.like.listenner.OnItemClickListenner;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
-import butterknife.OnClick;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements OnItemClickListenner {
 
-    @InjectView(R.id.btn1)
-    Button btn1;
-    @InjectView(R.id.btn2)
-    Button btn2;
+
+    @InjectView(R.id.main_context)
+    FrameLayout mainContext;
+    @InjectView(R.id.main_slide)
+    RecyclerView mainSlide;
+    /**
+     * 侧滑布局适配器
+     */
+    private SlideAdapter mSlideAdapter;
+
+    private List<SlideBean> mList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,13 +38,12 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.inject(this);
     }
 
-    @OnClick({R.id.btn1, R.id.btn2})
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.btn1:
-                break;
-            case R.id.btn2:
-                break;
-        }
+    private void init() {
+        mSlideAdapter = new SlideAdapter(MainActivity.this, mList);
+    }
+
+    @Override
+    public void onClick(View view, int position) {
+
     }
 }
