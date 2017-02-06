@@ -6,15 +6,24 @@
     <FrameLayout
         android:id="@+id/main_context"
         android:layout_width="match_parent"
-        android:background="#BAE7FE"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:background="#BAE7FE">
+
+        <com.like.layout.CheckSwitchButton
+            android:id="@+id/mCheckSwithcButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:enabled="true"
+            android:layout_gravity="center" />
+
+    </FrameLayout>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/main_slide"
         android:layout_width="300dp"
-        android:background="#2AB0FC"
         android:layout_height="match_parent"
         android:layout_gravity="start"
+        android:background="#2AB0FC"
         android:scrollbars="none" />
 
 </android.support.v4.widget.DrawerLayout>
