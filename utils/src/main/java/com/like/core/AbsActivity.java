@@ -5,6 +5,9 @@ import android.databinding.ViewDataBinding;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+
+import com.like.module.IOCProxy;
 
 /**
  * @ describe: 所有的Activity都将集成本类
@@ -26,6 +29,16 @@ public abstract class AbsActivity<VB extends ViewDataBinding> extends AppCompatA
      */
     protected AbsFrame mAm;
 
+    private IOCProxy mProxy;
+
+    /**
+     * 第一次点击返回的系统时间
+     */
+    private long mFirstClickTime = 0;
+
+    protected View mRootView;
+
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,11 +49,28 @@ public abstract class AbsActivity<VB extends ViewDataBinding> extends AppCompatA
         mAm = AbsFrame.getInstance();
         mAm.addActivity(this);
         mBind = DataBindingUtil.setContentView(this, setLayoutId());
+
     }
 
     /**
      * 设置资源ID
      */
     protected abstract int setLayoutId();
+
+    /**
+     * 数据回调
+     *
+     * @param result
+     * @param data
+     */
+    protected abstract void dataCallback(int result, Object data);
+
+
+    /**
+     * 获取binding对象
+     */
+    protected VB getBinding() {
+        return mBind;
+    }
 
 }
