@@ -44,18 +44,16 @@ public class BindingFactory {
         return vb;
     }
 
-    private <VB extends ViewDataBinding> VB loadBind(Object obj , Class<VB> clazz){
+    private <VB extends ViewDataBinding> VB loadBind(Object obj, Class<VB> clazz) {
         VB vb = null;
-        if (obj instanceof AbsActivity){
-            vb = (VB)((AbsActivity)obj).getBinding();
+        if (obj instanceof AbsActivity) {
+            vb = (VB) ((AbsActivity) obj).getBinding();
+        } else if (obj instanceof AbsFragment) {
+            vb = (VB) ((AbsFragment) obj).getBinding();
+        } else if (obj instanceof AbsDialogFragment) {
+            vb = (VB) ((AbsDialogFragment) obj).getBinding();
         }
-        // TODO: 2017/2/16/016 这里需要解开
-//        else if(obj instanceof AbsFragment){
-//            vb = (VB) ((AbsFragment) obj).getBinding();
-//        }else if(obj instanceof AbsDialogFragment){
-//            vb = (VB) ((AbsDialogFragment) obj).getBinding();
-//        }
-        mBinding.put(clazz.hashCode(),vb);
+        mBinding.put(clazz.hashCode(), vb);
         return vb;
     }
 
