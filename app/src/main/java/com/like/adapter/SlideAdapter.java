@@ -14,8 +14,8 @@ import com.like.listenner.OnItemClickListenner;
 
 import java.util.List;
 
+import butterknife.Bind;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 
 /**
  * @ describe:
@@ -63,14 +63,14 @@ public class SlideAdapter extends RecyclerView.Adapter<SlideAdapter.SlideViewHol
     }
 
     static class SlideViewHolde extends RecyclerView.ViewHolder {
-        @InjectView(R.id.slide_img)
+        @Bind(R.id.slide_img)
         ImageView slideImg;
-        @InjectView(R.id.slide_name)
+        @Bind(R.id.slide_name)
         TextView slideName;
 
         public SlideViewHolde(View itemView) {
             super(itemView);
-            ButterKnife.inject(this, itemView);
+            ButterKnife.bind(this, itemView);
         }
     }
 }

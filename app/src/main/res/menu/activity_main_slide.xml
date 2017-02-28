@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="基础组件的使用">
+        <menu>
+            <item
+                android:id="@+id/activity"
+                android:icon="@mipmap/ic_launcher"
+                android:title="AbsActivity的使用" />
+            <item
+                android:id="@+id/module"
+                android:icon="@mipmap/ic_launcher"
+                android:title="AbsFragment的使用" />
+            <item
+                android:id="@+id/dialog"
+                android:icon="@mipmap/ic_launcher"
+                android:title="AbsDialog的使用" />
+        </menu>
+    </item>
+
+    <item android:title="基础控件的使用">
+        <menu>
+            <item
+                android:id="@+id/image_view"
+                android:icon="@mipmap/ic_launcher"
+                android:title="自定义圆角的ImageView" />
+            <item
+                android:id="@+id/cloud_layout"
+                android:icon="@mipmap/ic_launcher"
+                android:title="标签云" />
+            <item
+                android:id="@+id/check_switch_button"
+                android:icon="@mipmap/ic_launcher"
+                android:title="自定义开关" />
+        </menu>
+    </item>
+
+    <item android:title="基础功能的使用">
+        <menu>
+            <item
+                android:id="@+id/permission"
+                android:icon="@mipmap/ic_launcher"
+                android:title="6.0权限申请" />
+            <item
+                android:id="@+id/temp_view"
+                android:icon="@mipmap/ic_launcher"
+                android:title="TempView使用" />
+            <item
+                android:id="@+id/crash"
+                android:icon="@mipmap/ic_launcher"
+                android:title="crash捕获" />
+        </menu>
+    </item>
+
+</menu>

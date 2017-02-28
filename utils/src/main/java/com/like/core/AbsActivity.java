@@ -60,6 +60,7 @@ public abstract class AbsActivity<VB extends ViewDataBinding> extends AppCompatA
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         initialization();
+        init(savedInstanceState);
     }
 
     protected void initialization() {

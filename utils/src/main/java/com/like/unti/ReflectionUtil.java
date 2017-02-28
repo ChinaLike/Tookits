@@ -2,8 +2,9 @@ package com.like.unti;
 
 import android.content.Context;
 import android.content.res.AssetManager;
-import android.databinding.tool.util.L;
 import android.text.TextUtils;
+
+import com.like.unti.show.L;
 
 import org.xmlpull.v1.XmlPullParser;
 
