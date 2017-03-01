@@ -26,7 +26,7 @@ import butterknife.ButterKnife;
  * @ email: 572919350@qq.com
  */
 
-public abstract class AbsActivity<VB extends ViewDataBinding> extends AppCompatActivity implements OnTempBtClickListener{
+public abstract class AbsActivity<VB extends ViewDataBinding> extends AppCompatActivity implements OnTempBtClickListener {
     /**
      * 打印标识
      */
@@ -50,9 +50,13 @@ public abstract class AbsActivity<VB extends ViewDataBinding> extends AppCompatA
     protected View mRootView;
 
     protected ModuleFactory mModuleF;
-
+    /**
+     * 占位布局
+     */
     protected AbsTempView mTempView;
-
+    /**
+     * 是否使用占位布局
+     */
     protected boolean useTempView = true;
 
 
@@ -72,31 +76,34 @@ public abstract class AbsActivity<VB extends ViewDataBinding> extends AppCompatA
         mModuleF = ModuleFactory.newInstance();
         ButterKnife.bind(this);
         mRootView = mBind.getRoot();
-        if (useTempView){
+        if (useTempView) {
             mTempView = new TempView(this);
             mTempView.setBtListener(this);
         }
     }
+
     /**
      * 获取填充View
      */
-    protected AbsTempView getTempView(){
+    protected AbsTempView getTempView() {
         return mTempView;
     }
+
     /**
      * 是否使用填充界面
      *
      * @param useTempView
      */
-    protected void setUseTempView(boolean useTempView){
+    protected void setUseTempView(boolean useTempView) {
         this.useTempView = useTempView;
     }
+
     /**
      * 设置自定义的TempView
      *
      * @param tempView
      */
-    protected void setCustomTempView(AbsTempView tempView){
+    protected void setCustomTempView(AbsTempView tempView) {
         mTempView = tempView;
         mTempView.setBtListener(this);
     }

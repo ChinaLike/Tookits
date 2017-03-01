@@ -3,6 +3,7 @@ package com.like.temp;
 import android.view.View;
 
 /**
+ * 占位布局点击事件
  * @ auther : Like on 2017/2/17/017.
  */
 

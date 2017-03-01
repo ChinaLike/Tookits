@@ -13,7 +13,7 @@ import com.like.unti.show.L;
 import butterknife.ButterKnife;
 
 /**
- * 抽象填充
+ * 抽象填充，所有自定义占位布局都需要继承AbsTempView
  *
  * @ auther : Like on 2017/2/17/017.
  */

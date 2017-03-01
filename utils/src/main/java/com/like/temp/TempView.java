@@ -10,6 +10,7 @@ import android.widget.TextView;
 import com.like.utils.R;
 
 /**
+ * 自定义占位布局
  * @ auther : Like on 2017/2/17/017.
  */
 

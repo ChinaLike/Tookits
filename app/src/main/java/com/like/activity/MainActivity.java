@@ -72,6 +72,7 @@ public class MainActivity extends AbsActivity<ActivityMainBinding> implements Na
                 /**AbsDialog的使用*/
                 break;
         }
+        mDrawerLayout.closeDrawers();
         return false;
     }
 }

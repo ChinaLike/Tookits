@@ -1,6 +1,7 @@
 package com.like.temp;
 
 /**
+ * 占位布局的回调
  * Created by Like on 2017/2/17.
  */
 public interface ITempView {
