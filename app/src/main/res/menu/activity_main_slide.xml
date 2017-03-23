@@ -15,23 +15,19 @@
                 android:id="@+id/dialog"
                 android:icon="@mipmap/ic_launcher"
                 android:title="AbsDialog的使用" />
+            <item
+                android:id="@+id/popup_window"
+                android:icon="@mipmap/ic_launcher"
+                android:title="popupWindow的使用" />
         </menu>
     </item>
 
     <item android:title="基础控件的使用">
         <menu>
             <item
-                android:id="@+id/image_view"
+                android:id="@+id/layout"
                 android:icon="@mipmap/ic_launcher"
-                android:title="自定义圆角的ImageView" />
-            <item
-                android:id="@+id/cloud_layout"
-                android:icon="@mipmap/ic_launcher"
-                android:title="标签云" />
-            <item
-                android:id="@+id/check_switch_button"
-                android:icon="@mipmap/ic_launcher"
-                android:title="自定义开关" />
+                android:title="自定义控件" />
         </menu>
     </item>
 

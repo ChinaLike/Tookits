@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
@@ -14,6 +15,9 @@ import android.view.MenuItem;
 import com.like.R;
 import com.like.core.AbsActivity;
 import com.like.databinding.ActivityMainBinding;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.Bind;
 
@@ -27,6 +31,7 @@ public class MainActivity extends AbsActivity<ActivityMainBinding> implements Na
     Toolbar mToolbar;
     @Bind(R.id.nav_view)
     NavigationView navView;
+    List<Fragment> mFragments = new ArrayList<>();
 
     @Override
     protected void init(Bundle savedInstanceState) {
@@ -58,18 +63,37 @@ public class MainActivity extends AbsActivity<ActivityMainBinding> implements Na
 
     }
 
+    private void initFragment(){
+        mFragments.add()
+    }
+
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.activity:
                 /**AbsActivity的使用*/
-                startActivity(new Intent(this,AbsActivityTest.class));
+                startActivity(new Intent(this, AbsActivityTest.class));
                 break;
             case R.id.module:
                 /**AbsFragment的使用*/
                 break;
             case R.id.dialog:
                 /**AbsDialog的使用*/
+                break;
+            case R.id.popup_window:
+                /**popupWindow的使用*/
+                break;
+            case R.id.layout:
+                /**自定义控件的使用*/
+                break;
+            case R.id.permission:
+                /**android6.0权限使用*/
+                break;
+            case R.id.temp_view:
+                /**填充布局的使用*/
+                break;
+            case R.id.crash:
+                /**crash捕获*/
                 break;
         }
         mDrawerLayout.closeDrawers();
