@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
@@ -14,7 +16,12 @@ import android.view.MenuItem;
 
 import com.like.R;
 import com.like.core.AbsActivity;
+import com.like.core.AbsFragment;
 import com.like.databinding.ActivityMainBinding;
+import com.like.fragment.AbsFragmentTest;
+import com.like.fragment.LayoutTest;
+import com.like.fragment.PermissionTest;
+import com.like.fragment.TempTest;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,15 +30,13 @@ import butterknife.Bind;
 
 public class MainActivity extends AbsActivity<ActivityMainBinding> implements NavigationView.OnNavigationItemSelectedListener {
 
-    @Bind(R.id.viewpager)
-    ViewPager viewpager;
     @Bind(R.id.main_drawer_layout)
     DrawerLayout mDrawerLayout;
     @Bind(R.id.toolbar)
     Toolbar mToolbar;
     @Bind(R.id.nav_view)
     NavigationView navView;
-    List<Fragment> mFragments = new ArrayList<>();
+    List<AbsFragment> mFragments = new ArrayList<>();
 
     @Override
     protected void init(Bundle savedInstanceState) {
@@ -41,7 +46,8 @@ public class MainActivity extends AbsActivity<ActivityMainBinding> implements Na
         mDrawerLayout.setDrawerListener(toggle);
         toggle.syncState();
         navView.setNavigationItemSelectedListener(this);
-        mToolbar.setTitle("项目简介");
+
+        initFragment();
     }
 
     @Override
@@ -63,8 +69,30 @@ public class MainActivity extends AbsActivity<ActivityMainBinding> implements Na
 
     }
 
-    private void initFragment(){
-        mFragments.add()
+    private void initFragment() {
+        mFragments.add(AbsFragmentTest.newInstance());
+        mFragments.add(LayoutTest.newInstance());
+        mFragments.add(PermissionTest.newInstance());
+        mFragments.add(TempTest.newInstance());
+        FragmentManager fm = getSupportFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        int i = 0;
+        for (AbsFragment fragment : mFragments) {
+            ft.add(R.id.content, fragment, i + "");
+            i++;
+        }
+        ft.commit();
+        showFragment(mFragments.get(0));
+        mToolbar.setTitle("AbsFragment");
+    }
+
+    /**
+     * 切换Fragment
+     * @param fragment
+     */
+    private void showFragment(AbsFragment fragment) {
+        FragmentManager fm = getSupportFragmentManager();
+        fm.beginTransaction().replace(R.id.content, fragment).commit();
     }
 
     @Override
@@ -76,6 +104,8 @@ public class MainActivity extends AbsActivity<ActivityMainBinding> implements Na
                 break;
             case R.id.module:
                 /**AbsFragment的使用*/
+                showFragment(mFragments.get(0));
+                mToolbar.setTitle("AbsFragment");
                 break;
             case R.id.dialog:
                 /**AbsDialog的使用*/
@@ -85,12 +115,18 @@ public class MainActivity extends AbsActivity<ActivityMainBinding> implements Na
                 break;
             case R.id.layout:
                 /**自定义控件的使用*/
+                showFragment(mFragments.get(1));
+                mToolbar.setTitle("自定义控件");
                 break;
             case R.id.permission:
                 /**android6.0权限使用*/
+                showFragment(mFragments.get(2));
+                mToolbar.setTitle("Android权限");
                 break;
             case R.id.temp_view:
                 /**填充布局的使用*/
+                showFragment(mFragments.get(3));
+                mToolbar.setTitle("填充布局");
                 break;
             case R.id.crash:
                 /**crash捕获*/

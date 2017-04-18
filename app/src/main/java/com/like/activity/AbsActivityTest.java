@@ -8,6 +8,11 @@ import android.widget.TextView;
 import com.like.R;
 import com.like.base.BaseActivity;
 import com.like.databinding.ActivityAbsBinding;
+import com.like.dialog.IpDialog;
+import com.like.module.AbsModule;
+import com.like.module.AddressModule;
+import com.like.module.BindingModule;
+import com.like.module.PhoneAdressModule;
 
 import butterknife.Bind;
 import butterknife.OnClick;
@@ -26,7 +31,7 @@ public class AbsActivityTest extends BaseActivity<ActivityAbsBinding> {
     @Override
     protected void init(Bundle savedInstanceState) {
         super.init(savedInstanceState);
-        setTitle("AbsActivity测试");
+        setTitle("AbsActivity");
     }
 
     @Override
@@ -36,23 +41,40 @@ public class AbsActivityTest extends BaseActivity<ActivityAbsBinding> {
 
     @Override
     protected void dataCallback(int result, Object data) {
-
+        getBinding().setText(data.toString());
     }
 
-    @OnClick({R.id.loading_btn, R.id.loading_fail_btn, R.id.loading_null_btn, R.id.loading_style_btn})
+    @OnClick({R.id.module1, R.id.module2, R.id.module3, R.id.module4})
     public void onCLick(View view) {
         switch (view.getId()) {
-            case R.id.loading_btn:
-                /**加载中*/
+            case R.id.module1:
+                /**普通Module使用*/
+                getModule(PhoneAdressModule.class).getPhoneAdressInfo();
                 break;
-            case R.id.loading_fail_btn:
-                /**加载失败*/
+            case R.id.module2:
+                /**Module的普通回调使用*/
+                getModule(AddressModule.class, new AbsModule.OnCallBack() {
+                    @Override
+                    public void onSuccess(int result, Object success) {
+                        if (result == 1) {
+                            getBinding().setText(success.toString());
+                        }
+                    }
+
+                    @Override
+                    public void onError(int result, Object error) {
+
+                    }
+                }).getAddress();
                 break;
-            case R.id.loading_null_btn:
-                /**加载空界面*/
+            case R.id.module3:
+                /**在Module中调用binding*/
+                getModule(BindingModule.class).setBinding();
                 break;
-            case R.id.loading_style_btn:
-                /**自定义加载界面*/
+            case R.id.module4:
+                /**Dialog回调*/
+                IpDialog dialog = new IpDialog(this);
+                dialog.show(getSupportFragmentManager(), "ip_dialog");
                 break;
         }
     }

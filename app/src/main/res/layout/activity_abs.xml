@@ -24,24 +24,24 @@
             android:text="@{text}" />
 
         <Button
-            android:id="@+id/loading_btn"
+            android:id="@+id/module1"
             style="@style/MyButton"
-            android:text="AbsActivity加载中提示" />
+            android:text="Module的普通使用" />
 
         <Button
-            android:id="@+id/loading_fail_btn"
+            android:id="@+id/module2"
             style="@style/MyButton"
-            android:text="AbsActivity加载错误提示" />
+            android:text="Module的普通回调使用" />
 
         <Button
-            android:id="@+id/loading_null_btn"
+            android:id="@+id/module3"
             style="@style/MyButton"
-            android:text="AbsActivity加载数据为空" />
+            android:text="在Module中调用binding" />
 
         <Button
-            android:id="@+id/loading_style_btn"
+            android:id="@+id/module4"
             style="@style/MyButton"
-            android:text="AbsActivity自定义加载布局" />
+            android:text="Dialog回调" />
 
     </LinearLayout>
 
